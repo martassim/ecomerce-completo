@@ -256,6 +256,14 @@ public class MainController {
     public String shoppingCartFinalize(HttpServletRequest request, Model model) {
  
         CartInfo lastOrderedCart = Utils.getLastOrderedCartInSession(request);
+        
+        CartInfo cartInfo = Utils.getCartInSession(request);
+        CustomerInfo customerInfo = cartInfo.getCustomerInfo();
+        
+        model.addAttribute("customerForm", customerInfo);
+        
+        model.addAttribute("carts", lastOrderedCart);
+        
  
         if (lastOrderedCart == null) {
             return "redirect:/shoppingCart";

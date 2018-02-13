@@ -21,7 +21,8 @@
   
    <div class="container">
        <h3>Thank you for Order</h3>
-       Your order number is: ${lastOrderedCart.orderNum}
+       <p>Your order number is: ${lastOrderedCart.orderNum}</p>
+       <p>Get your order info in <a href="">PDF</a></p>
    </div>
  
    <jsp:include page="_footer.jsp" />
