@@ -8,10 +8,14 @@
 <meta charset="UTF-8">
  
 <title>Shopping Cart</title>
- 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles.css">
+
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/css/main.css"> 
+ <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/styles.css">
+
+
  
 </head>
+
 <body>
    <jsp:include page="_header.jsp" />
   
@@ -19,7 +23,9 @@
   
    <fmt:setLocale value="en_US" scope="session"/>
  
-   <div class="page-title">My Cart</div>
+
+
+
  
    <c:if test="${empty cartForm or empty cartForm.cartLines}">
        <h2>There is no items in Cart</h2>
@@ -30,14 +36,20 @@
    <c:if test="${not empty cartForm and not empty cartForm.cartLines   }">
        <form:form method="POST" modelAttribute="cartForm"
            action="${pageContext.request.contextPath}/shoppingCart">
+           
+    
  
            <c:forEach items="${cartForm.cartLines}" var="cartLineInfo"
-               varStatus="varStatus">
-               <div class="product-preview-container">
-                   <ul>
-                       <li><img class="product-image"
+               varStatus="varStatus"> 
+              
+               
+                   
+				               <div class="image"><img class="product-image"
                            src="${pageContext.request.contextPath}/productImage?code=${cartLineInfo.productInfo.code}" />
-                       </li>
+                       </div>
+                       
+                       <div class="content"  >
+                       <ul>
                        <li>Code: ${cartLineInfo.productInfo.code} <form:hidden
                                path="cartLines[${varStatus.index}].productInfo.code" />
  
@@ -61,7 +73,10 @@
                            href="${pageContext.request.contextPath}/shoppingCartRemoveProduct?code=${cartLineInfo.productInfo.code}">
                                Delete </a></li>
                    </ul>
-               </div>
+                   
+                  
+                  
+             
            </c:forEach>
            <div style="clear: both"></div>
            <input class="button-update-sc" type="submit" value="Update Quantity" />
@@ -75,9 +90,19 @@
  
  
    </c:if>
- 
- 
+ </section>
+ </div> 
    <jsp:include page="_footer.jsp" />
+ 
+ 
+   <script src="${pageContext.request.contextPath}/assets/js/jquery.min.js">type="text/javascript"><jsp:text> </jsp:text></script>
+			<script src="${pageContext.request.contextPath}/assets/js/jquery.scrollex.min.js">type="text/javascript"><jsp:text> </jsp:text></script>
+			<script src="${pageContext.request.contextPath}/assets/js/jquery.scrolly.min.js">type="text/javascript"><jsp:text> </jsp:text></script>
+			<script src="${pageContext.request.contextPath}/assets/js/skel.min.js">type="text/javascript"><jsp:text> </jsp:text></script>
+			<script src="${pageContext.request.contextPath}/assets/js/util.js">type="text/javascript"><jsp:text> </jsp:text></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js">type="text/javascript"><jsp:text> </jsp:text></script><![endif]-->
+			<script src="${pageContext.request.contextPath}/assets/js/main.js">type="text/javascript"><jsp:text> </jsp:text></script>
+ 
  
 </body>
 </html>

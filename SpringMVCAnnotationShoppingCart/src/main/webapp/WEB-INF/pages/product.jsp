@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>Product</title>
  
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles.css">
+<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/assets/styles.css">
  
 </head>
 <body>
